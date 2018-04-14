@@ -14,7 +14,8 @@ public:
 	
 	ToDoListApp(std::istream& in = std::cin, 
 				std::ostream& out = std::cout) : 
-				in(in), out(out) {}
+				in(in), out(out) {};
+	~ToDoListApp() {};
 protected:
 	
 	enum TaskType { SHOPPING = 'S', EVENT = 'E', HOMEWORK = 'H', GENERIC = 'G' };
@@ -34,6 +35,8 @@ private:
 	std::istream& in = std::cin;
 	std::ostream& out = std::cout;
 	
+	List<Task>* tasks;
+
 };
 
 #endif 
