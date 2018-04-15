@@ -41,36 +41,9 @@ void ToDoListApp::run() {
 		} else {
 			out << "Unknown Command (" << command << "). Try Again.\n";
 		}
-		//out << "\n";
+		out << "\n";
 	} while (true);
 }
 
-void ToDoListApp::executeCommandPrint(bool completed, bool detailed){
-	if (completed == false && detailed == false) {
-		printTask(tasks);
-	} else if (completed == false && detailed == true) {
-		printDetailed(tasks);
-	} else if (completed == true && detailed == false) {
-		printCompleted(tasks);
-	}
-}
 
-void ToDoListApp::executeCommandAddTask(){
-	addTask(tasks);
-}
-
-void ToDoListApp::executeCommandRemoveTask(){
-	removeTask(tasks);
-}
-
-void ToDoListApp::executeCommandCompleteTask() {
-	completeTask(tasks);
-}
-
-void ToDoListApp::executeCommandSave(){
-	saveTask(tasks);
-}
-
-void ToDoListApp::executeCommandLoad() {
-	loadTask(tasks);
-}
+ 
