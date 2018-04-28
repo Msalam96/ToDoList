@@ -5,19 +5,29 @@
 
 class Event : public Task {
 public:
+	/**Event() - default constructor, calls addInstruction, asks user for Events 
+		     location and time and sets taskType to E.
+	 */
 	Event();
-	Event(string line);
+	Event(std::string line);
 	~Event() {};
 	
-	string location() {return location_;};
-	string time() {return time_;};
+	/**location() - getter for Event specific Task class location_ variable.
+	 *@return - string, Event Tasks's location
+         */
+	std::string location() {return location_;};
+	
+	/**subject() - getter for Event specific Task class time_ variable.
+	 *@return - string, Event Tasks's time.
+         */
+	std::string time() {return time_;};
 
 	void printList();
 	void detailedPrint();
-	string printtoFile();
+	std::string printtoFile();
 
 private:
-	string location_, time_;
+	std::string location_, time_;
 };
 
 #endif
