@@ -4,6 +4,7 @@
 #include <iostream>
 #include "ToDoListDriver.h"
 
+
 // ToDoList Application Class - This class will handle the commands entered from the
 // user. It is initialized with an input/output stream, which is by default cout/cin. 
 
@@ -17,9 +18,6 @@ public:
 				in(in), out(out) {};
 	~ToDoListApp() {};
 protected:
-	
-	enum TaskType { SHOPPING = 'S', EVENT = 'E', HOMEWORK = 'H', GENERIC = 'G' };
-
 	// You will implement all of the following functions
 	void executeCommandPrint(bool completed = false, bool detailed = false);
 
@@ -35,8 +33,7 @@ private:
 	std::istream& in = std::cin;
 	std::ostream& out = std::cout;
 	
-	List<Task>* tasks;
-
+	SortedTaskList* tasks;
 };
 
 #endif 
