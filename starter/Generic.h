@@ -20,11 +20,11 @@ public:
 	 */
 	Generic();
 	/**Generic() - Overloaded constructor that is called when LOAD Command is called. 
-				   Function that is called using istream, since the file to be loaded 
-				   is in a specific format it goes character by character in order to 
-				   determine which specific character is which. When a "|" is found 
-				   it means that a new piece of a Task is found in the line.
-	 *@param string		line	[in]	Line read from file
+		       Function that is called using istream, since the file to be loaded 
+		       is in a specific format it goes character by character in order to 
+		       determine which specific character is which. When a "|" is found 
+		       it means that a new piece of a Task is found in the line.
+	 *@param string	line	[in]	Line read from file
 	 */
 	Generic(std::string line);
 
