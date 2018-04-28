@@ -19,65 +19,62 @@ Description:	The header file for the class function. This class
 #include <iostream>
 #include <string>
 
-using namespace std;
 class Date {
 public:
 	/** Date() - default constructor
-	  */
+	 */
 	Date() {};
 
 	/** Date() - overloaded constructor, sets deadline date when LOAD command 
-				 is called. Since we can assume the user will input the date in
-				 MM/DD/YYYY format, we break down that string using substrings 
-				 and save the MM part to month, the DD part to day, and the YYYY 
-				 part to year.
+		     is called. Since we can assume the user will input the date in
+		     MM/DD/YYYY format, we break down that string using substrings 
+		     and save the MM part to month, the DD part to day, and the YYYY 
+		     part to year.
 	 *@param - string 	deadline	[in]	Task deadline
 	 *@return - a string, date's deadline
 	 */
-	Date(string deadline);
+	Date(std::string deadline);
 
 	/** getDate() - returns date in MM/DD/YYYY format.
 	 *@return - a string, date format.
 	 */
-	string getDate() const;
+	std::string getDate() const;
 
 	/** operator>> - istream operator to cin a date correctly using getline. Breaks down
-					 the date to assign it to the corresponding private member by tracking
-					 the "/" character in dates.
-	 *@param -	istream 	in 		[in]	input stream
-	 *@param -	Date 		date 	[in] 	Task date
+			 the date to assign it to the corresponding private member by tracking
+			 the "/" character in dates.
+	 *@param - istream 	in 	[in]	input stream
+	 *@param - Date 	date 	[in] 	Task date
 	 *@return - in, istream for date class
 	 */
-	friend istream& operator>>(istream& in, Date& date);
+	friend std::istream& operator>>(std::istream& in, Date& date);
 
 	/** operator<< - ostream operator, outputs date in MM/DD/YYYY format.
-	 *@param -	ostream 	out 	[in]	output stream
-	 *@param -	Date 		date 	[in] 	Task date
+	 *@param - ostream 	out 	[in]	output stream
+	 *@param - Date 	date 	[in] 	Task date
 	 *@return - out, ostream for date class
 	 */
-	friend ostream& operator<<(ostream& out, const Date& date);
+	friend std::ostream& operator<<(std::ostream& out, const Date& date);
 
 	/** operator== - comparator operator for Date class, checks to see if 
-					 two dates are the same by comparing their years, months,
-					 then dates in that respective order.
-	 *@param -	Date 		lhs 	[in]	first date in comparison
-	 *@param -	Date 		rhs 	[in] 	second date in comparison
+			 two dates are the same by comparing their years, months,
+			 then dates in that respective order.
+	 *@param -Date 	rhs 	[in] 	second date in comparison
 	 *@return - true if dates are equal, false otherwise.
 	 */
-	friend bool operator==(const Date& lhs, const Date& rhs);
+	bool operator==(const Date& rhs);
 
 	/** operator > - comparator operator for Date class, compares
-					 two dates then checks to see which date is bigger
-					 by comparing their years, months, then dates in that
-					 respective order.
-	 *@param -	Date 		lhs 	[in]	first date in comparison
-	 *@param -	Date 		rhs 	[in] 	second date in comparison
+			 two dates then checks to see which date is bigger
+			 by comparing their years, months, then dates in that
+			 respective order.
+	 *@param - Date rhs 	[in] 	second date in comparison
 	 *@return - true if lhs(first date) is greater, false if rhs(second date)
 	 			is greater.
 	 */
-	friend bool operator >(const Date& lhs, const Date& rhs);
+	bool operator >(const Date& rhs);
 
 private:
-	string month, day, year;
+	std::string month, day, year;
 };
 #endif
