@@ -16,6 +16,7 @@ Description:	Defines functions of the Generic Class. Only tricky
 
 #include "Generic.h"
 
+using namespace std;
 Generic::Generic() {
 	addInstructions();
 	settaskType("G");
