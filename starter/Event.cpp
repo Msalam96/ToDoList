@@ -1,5 +1,6 @@
 #include "Event.h"
 
+using namespace std;
 Event::Event() {
 	addInstructions();
 	cout << "Where is this event taking place?" << endl << "> ";
