@@ -10,6 +10,7 @@ Description:	Cpp file for the Date class, defines all non inline
 ***************************************************************/
 #include "Date.h"
 
+using namespace std;
 Date::Date(string deadline) {
 	month = deadline.substr(0,2);
 	day   = deadline.substr(3,2);
@@ -36,20 +37,20 @@ ostream& operator<<(ostream& out, const Date& date) {
 	return out;
 }
 
-bool operator==(const Date& lhs, const Date& rhs) {
-	return ((lhs.year == rhs.year) && (lhs.month == rhs.month) && (lhs.day == rhs.day));
+bool Date::operator==(const Date& rhs) {
+	return ((year == rhs.year) && (month == rhs.month) && (day == rhs.day));
 }
 
-bool operator >(const Date& lhs, const Date& rhs) {
-	if (lhs.year < rhs.year) {
+bool Date::operator >(const Date& rhs) {
+	if (year < rhs.year) {
       return false;
     } 
-    if (lhs.year == rhs.year) {
-    	if (lhs.month < rhs.month) { 
+    if (year == rhs.year) {
+    	if (month < rhs.month) { 
           return false;
         } 
-        else if (lhs.month == rhs.month) {
-             if (lhs.day < rhs.day) {
+        else if (month == rhs.month) {
+             if (day < rhs.day) {
                 return false;
              }
         }
