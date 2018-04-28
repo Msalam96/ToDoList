@@ -1,7 +1,7 @@
 #include "ToDoListDriver.h"
 
 
-void addTask(List<Task>* tasks) {
+void addTask(SortedTaskList* tasks) {
 	bool flag = true;
 	cout << "What type of task is this? [G: Generic, S: Shopping, E:Event, H: Homework]" << endl;
 	do {
@@ -11,19 +11,19 @@ void addTask(List<Task>* tasks) {
 		transform(type.begin(), type.end(), type.begin(), ::toupper);
 		if (type == "G") {
 			Generic* generic = new Generic;
-			tasks->sortedInsert(tasks->getHead(),generic);
+			tasks->insert(generic);
 			flag = false;
 		} else if (type == "S") {
 			Shopping* shopping = new Shopping;
-			tasks->sortedInsert(tasks->getHead(),shopping);
+			tasks->insert(shopping);
 			flag = false;
 		} else if (type == "E") {
 			Event* event = new Event;
-			tasks->sortedInsert(tasks->getHead(),event);	
+			tasks->insert(event);	
 			flag = false;
 		} else if (type == "H") {
 			Homework* homework = new Homework;
-			tasks->sortedInsert(tasks->getHead(),homework);
+			tasks->insert(homework);
 			flag = false;
 		} else {
 			cout << "Unknown Command (" << type << "). Try Again.\n";
@@ -32,7 +32,7 @@ void addTask(List<Task>* tasks) {
 		cout << "Task added successfully." << endl;
 }
 
-void printTask(List<Task>* tasks) {
+void printTask(SortedTaskList* tasks) {
 	if (tasks->empty()) {
 		cout << "You have no outstanding tasks!" << endl;
 	} else {
@@ -40,7 +40,7 @@ void printTask(List<Task>* tasks) {
 	}
 }
 
-void printDetailed(List<Task>* tasks) {
+void printDetailed(SortedTaskList* tasks) {
 	if (tasks->empty()) {
 		cout << "You have no outstanding tasks!" << endl;
 	} else {
@@ -49,7 +49,7 @@ void printDetailed(List<Task>* tasks) {
 }
 
 
-void removeTask(List<Task>* tasks) {
+void removeTask(SortedTaskList* tasks) {
 	bool flag = true;
 	if (tasks->empty()) {
 		cout << "You have no outstanding tasks!" << endl;
@@ -70,7 +70,7 @@ void removeTask(List<Task>* tasks) {
 	}		
 }
 
-void completeTask(List<Task>* tasks) {
+void completeTask(SortedTaskList* tasks) {
 	if (tasks->empty()) {
 		cout << "You have no outstanding tasks!" << endl;
 	} else {
@@ -87,7 +87,7 @@ void completeTask(List<Task>* tasks) {
 	cout << "Task marked complete successfully!" << endl;
 }
 
-void printCompleted(List<Task>* tasks) {
+void printCompleted(SortedTaskList* tasks) {
 	if (tasks->comSize() == 0) {
 		cout << "You have no completed tasks!" << endl;
 	} else {
@@ -95,7 +95,7 @@ void printCompleted(List<Task>* tasks) {
 	}
 }
 
-void saveTask(List<Task>* tasks) {
+void saveTask(SortedTaskList* tasks) {
 	if (tasks->empty()) {
 		cout << "You have no outstanding tasks!" << endl;
 		return;
@@ -106,7 +106,7 @@ void saveTask(List<Task>* tasks) {
 		getline(cin, fileName);
 		outFile.open(fileName, ios::out);
 		for(int i = 1; i <= tasks->incSize(); ++i) {
-			Node<Task>* newNode = tasks->getNode(i);
+			Node* newNode = tasks->getNode(i);
 			outFile << *(newNode->data) << endl;
 	
 		}
@@ -115,7 +115,7 @@ void saveTask(List<Task>* tasks) {
 	}
 }
 
-void loadTask(List<Task>* tasks) {
+void loadTask(SortedTaskList* tasks) {
 	string line;
 	string fileName;
 
@@ -127,16 +127,16 @@ void loadTask(List<Task>* tasks) {
 	while (getline(inFile, line)) {
 		if (line[0] == 'G') {
 			Generic* task = new Generic(line);
-			tasks->sortedInsert(tasks->getHead(),task);
+			tasks->insert(task);
 		} else if (line[0] == 'S') {
 			Shopping* task = new Shopping(line);
-			tasks->sortedInsert(tasks->getHead(),task);
+			tasks->insert(task);
 		} else if (line[0] == 'E') {
 			Event* task = new Event(line);
-			tasks->sortedInsert(tasks->getHead(),task);
+			tasks->insert(task);
 		} else if (line[0] == 'H') {
 			Homework* task = new Homework(line);
-			tasks->sortedInsert(tasks->getHead(),task);
+			tasks->insert(task);
 		}
 	}
 	inFile.close();
