@@ -1,5 +1,6 @@
  #include "Homework.h"
 
+using namespace std;
 Homework::Homework() {
 	addInstructions();
 	cout << "What subject is this homework task for?" << endl << "> ";
@@ -37,6 +38,7 @@ Homework::Homework(string line) {
 		}
 	}
 }
+
 void Homework::printList() {
 	cout << deadline().getDate() << " - [Homework] " << description();
 }
