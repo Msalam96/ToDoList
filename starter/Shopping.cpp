@@ -1,15 +1,16 @@
 /***************************************************************
 Title:			Shopping.cpp
 Author:			Mohammed Salam
-Date Created:	3/29/2018
+Date Created:		3/29/2018
 Class:			Spring 2018, CSCI 235-03, Mon - Wed 7:00pm-8:15 pm
 Professor:		Aarsh Vora
 Purpose:		Assignment #2
-Description:	
+Description:		Cpp file for Shopping specific functions 
 ***************************************************************/
 
 #include "Shopping.h"
 
+using namespace std;
 Shopping::Shopping() {
 	addInstructions();
 	cout << "What items do you need to buy? [Type your item and press ENTER to add another item. Type DONE to complete the list.]" << endl;
