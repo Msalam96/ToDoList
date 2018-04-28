@@ -5,7 +5,7 @@ Date Created:	3/29/2018
 Class:			Spring 2018, CSCI 235-03, Mon - Wed 7:00pm-8:15 pm
 Professor:		Aarsh Vora
 Purpose:		Assignment #2
-Description:	
+Description:	Header file for shopping task functions
 ***************************************************************/
 
 #ifndef SHOPPING_H
@@ -16,18 +16,25 @@ Description:
 
 class Shopping : public Task {
 public:
+	/**Shopping() - default constructor, calls addInstruction and asks user which item
+	 		they need for their shopping list. Sets tasktype_ to S.
+     	 */	
 	Shopping();
-	Shopping(string line);
+
+	Shopping(std::string line);
 	~Shopping () {};
 
-	void pushItem(string item);
+	/**pushItem() - adds items to the users Shopping List, 
+	 *@param - string item 	[in]	Item to add to shopping list
+     	 */	
+	void pushItem(std::string item);
 
 	void printList();
 	void detailedPrint();
-	string printtoFile();
+	std::string printtoFile();
 	
 
 private:
-	vector<string> shoppingList;
+	std::vector<std::string> shoppingList;
 };
 #endif
