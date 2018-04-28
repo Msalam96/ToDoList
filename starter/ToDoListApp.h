@@ -14,8 +14,8 @@ public:
 	void run();
 	
 	ToDoListApp(std::istream& in = std::cin, 
-				std::ostream& out = std::cout) : 
-				in(in), out(out) {};
+		    std::ostream& out = std::cout) : 
+		    in(in), out(out) {};
 	~ToDoListApp() {};
 protected:
 	// You will implement all of the following functions
