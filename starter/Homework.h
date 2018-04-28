@@ -5,17 +5,23 @@
 
 class Homework : public Task {
 public:
+	/**Homework() - default constructor, calls addInstruction and asks user which subject
+			the homework is for. Sets tasktype_ to H.
+     	 */	
 	Homework();
-	Homework(string line);
+	Homework(std::string line);
 	~Homework() {};
 
-	string subject() {return subject_;};
+	/**subject() - getter for Homework specic Task class subject_ variable.
+	 *@return - string, Homework Tasks's subject.
+     	 */
+	std::string subject() {return subject_;};
 
 	void printList();
 	void detailedPrint();
-	string printtoFile();
+	std::string printtoFile();
 
 private:
-	string subject_;
+	std::string subject_;
 };
 #endif
