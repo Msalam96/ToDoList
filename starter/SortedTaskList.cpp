@@ -8,7 +8,6 @@ void SortedTaskList::insert(Task* data) {
 		temp->data = data;
 		temp->next = head;
 		head = temp;
-		delete temp;
 		++size_;
 		return;
 	}
@@ -46,14 +45,12 @@ void SortedTaskList::remove(int pos) {
 			Node* curr = getNode(pos);
 			Node* prev = getPrev(pos);
 			prev->next = NULL;
-			delete curr;
 		} else {
 			Node* curr = getNode(pos);
 			Node* prev = getPrev(pos);
 			Node* temp = curr->next;
 			prev->next = temp;
 			curr->next = NULL;
-			delete curr;
 		}
 		--size_;
 	}
