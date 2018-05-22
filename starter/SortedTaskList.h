@@ -23,8 +23,6 @@ Description:	List class header fiel and function definitions. This is the curren
 #include "Comparator.h"
 #include <cstdlib>
 
-using namespace std;
-
 struct Node {
 	Task* data;
 	Node* next;
